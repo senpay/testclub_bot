@@ -1,7 +1,0 @@
-runtime: python38
-
-manual_scaling:
-  instances: 1
-
-env_variables:
-  TOKEN: ODg4MTU3NzMwNjA5NzA5MTE2.YUOnWA.1-X-4g6PyRiT94s8NZ45Uwtsivs
