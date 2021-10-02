@@ -1,8 +1,12 @@
 import discord
+import logging
+from discord.ext import commands
 from just_config.configuration import Configuration
 
-client = discord.Client()
 
+intents=discord.Intents.default()
+intents.members=True
+client = discord.Client(intents=intents)
 
 @client.event
 async def on_ready():
@@ -10,12 +14,27 @@ async def on_ready():
 
 
 @client.event
+async def on_member_join(member):
+    channel=member.guild.system_channel
+    await channel.send(f'Владыка {member.mention} явился!')
+
+@client.event
+async def on_member_remove(member):
+    channel=member.guild.system_channel
+    logging.info(f'{member.mention} exit')
+    await channel.send(f'Владыка {member.mention} предал нас!')
+
+@client.event
 async def on_message(message):
     if message.author == client.user:
         return
 
     if message.content.startswith('$bot'):
-        await message.channel.send('Шо нада была, хазяин?!')
+        print('see')
+        await message.channel.send('Rо нада была, хазяин?!')
+
+
+
 
 config = Configuration()
 
