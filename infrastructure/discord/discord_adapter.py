@@ -1,16 +1,8 @@
 import discord
 import logging
-<<<<<<< Updated upstream
-from discord.ext import commands
-=======
->>>>>>> Stashed changes
 from just_config.configuration import Configuration
 import json
 
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 intents=discord.Intents.default()
 intents.members=True
 client = discord.Client(intents=intents)
@@ -22,38 +14,29 @@ async def on_ready():
 
 @client.event
 async def on_member_join(member):
-<<<<<<< Updated upstream
-    channel=member.guild.system_channel
-    await channel.send(f'Владыка {member.mention} явился!')
-=======
-    with open ('Hellomessage.json','r') as f:
+    with open ('DiscordBotMessage.json','r') as f:
         message=json.load(f)
     channel=member.guild.system_channel
-    await channel.send(f'{message["1"]}{member.mention} {message["2"]}')
->>>>>>> Stashed changes
+    logging.info(f'{member.mention} come')
+    hello_message=message["hello_message"]
+    hello_message=hello_message.replace('${username}',member.mention )
+    await channel.send(hello_message)
 
 @client.event
 async def on_member_remove(member):
-    channel=member.guild.system_channel
-    logging.info(f'{member.mention} exit')
-<<<<<<< Updated upstream
-    await channel.send(f'Владыка {member.mention} предал нас!')
-=======
-    with open ('Traitormessage.json','r') as f:
+    with open ('DiscordBotMessage.json','r') as f:
         message=json.load(f)
-    await channel.send(f'{message["1"]}{member.mention} {message["2"]}')
->>>>>>> Stashed changes
+    channel = member.guild.system_channel
+    logging.info(f'{member.mention} exit')
+    traitor_message=message["traitor_message"]
+    traitor_message=traitor_message.replace('${username}',member.mention )
+    await channel.send(traitor_message)
 
 @client.event
 async def on_message(message):
     if message.author == client.user:
         return
-
     if message.content.startswith('$bot'):
-<<<<<<< Updated upstream
-        print('see')
-=======
->>>>>>> Stashed changes
         await message.channel.send('Rо нада была, хазяин?!')
 
 

@@ -1,4 +1,5 @@
 {
-  "1": "Владыка ",
-  "2": "явился! "
+  "hello_message": "Владыка ${username} явился",
+  "traitor_message": "Владыка ${username} предал нас"
+
 }
