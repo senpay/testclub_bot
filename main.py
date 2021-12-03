@@ -35,6 +35,7 @@ async def on_member_remove(member):
 
 @client.event
 async def on_message(message):
+    channel = message.channel
     domain_message = Message(
         message.author.mention,
         message.content
@@ -42,7 +43,7 @@ async def on_message(message):
     response_msg = members_service.handle_message(domain_message)
 
     if response_msg:
-        await response_msg
+        await channel.send(response_msg)
 
 
 config = Configuration()
