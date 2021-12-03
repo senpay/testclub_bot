@@ -1,18 +1,47 @@
-import infrastructure.discord.discord_adapter
+import discord
+from application.members_service import MembersService, Member, Message
 
-from flask import Flask
+from just_config.configuration import Configuration
 
-app = Flask(__name__)
+intents = discord.Intents.default()
+intents.members = True
+client = discord.Client(intents=intents)
 
-pinged = 0
-
-
-@app.route('/ping')
-def ping():
-    global pinged
-    pinged += 1
-    return f'Pong! (pinged {pinged} times)'
+members_service = MembersService(client.user.mention)
 
 
-# if __name__ == '__main__':
-#     app.run(debug=True)
+@client.event
+async def on_ready():
+    print('We have logged in as {0.user}'.format(client))
+
+
+@client.event
+async def on_member_join(member):
+    domain_member = Member(member.mention)
+    response_msg = members_service.handle_member_joined(domain_member)
+    channel=member.guild.system_channel
+    await channel.send(response_msg)
+
+
+@client.event
+async def on_member_remove(member):
+    channel=member.guild.system_channel
+    domain_member = Member(member.mention)
+    response_msg = members_service.handle_member_left(domain_member)
+    await channel.send(response_msg)
+
+
+@client.event
+async def on_message(message):
+    domain_message = Message(
+        message.author.mention,
+        message.content
+    )
+    response_msg = members_service.handle_message(domain_message)
+
+    if response_msg:
+        await response_msg
+
+
+config = Configuration()
+client.run(config['TOKEN'])
