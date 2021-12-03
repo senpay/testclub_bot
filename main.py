@@ -7,11 +7,13 @@ intents = discord.Intents.default()
 intents.members = True
 client = discord.Client(intents=intents)
 
-members_service = MembersService(client.user.mention)
+members_service = MembersService('temp')
 
 
 @client.event
 async def on_ready():
+    global members_service
+    members_service = MembersService(client.user.mention)
     print('We have logged in as {0.user}'.format(client))
 
 
