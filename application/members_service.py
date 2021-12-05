@@ -1,12 +1,7 @@
 import logging
 from attr import dataclass
 
-ON_MEMBER_LEFT_MSG = "{} оказался пердателем!"
-ON_MEMBER_JOINED_MSG = "Добро пожаловать в клуб, {}!"
-PONG_MSG = 'Шо нада была, хазяин?!'
-
-
-PING_COMMAND = '$bot'
+from config.config import ON_MEMBER_LEFT_MSG, PING_COMMAND, PONG_MSG, ON_MEMBER_JOINED_MSG
 
 
 @dataclass
