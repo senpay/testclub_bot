@@ -6,6 +6,7 @@ from config.config import ON_MEMBER_LEFT_MSG, PING_COMMAND, PONG_MSG, ON_MEMBER_
 
 logger = logging.getLogger(__name__)
 
+
 @dataclass
 class Member:
     name: str
