@@ -54,15 +54,11 @@ class DiscordEventListener(discord.Client):
 
     async def on_member_join(self, member):
         domain_member = Member(member.mention)
-        response_msg = self.members_service.handle_member_joined(domain_member)
-        general_channel = member.guild.system_channel
-        await general_channel.send(response_msg)
+        self.members_service.handle_member_joined(domain_member)
 
     async def on_member_remove(self, member):
         domain_member = Member(member.mention)
-        response_msg = self.members_service.handle_member_left(domain_member)
-        general_channel = member.guild.system_channel
-        await general_channel.send(response_msg)
+        self.members_service.handle_member_left(domain_member)
 
     async def on_message(self, message):
         domain_message = Message(
@@ -70,8 +66,4 @@ class DiscordEventListener(discord.Client):
             message.content,
             message.channel.name
         )
-        response_msg = self.members_service.handle_message(domain_message)
-
-        if response_msg:
-            message_channel = message.channel
-            await message_channel.send(response_msg)
+        self.members_service.handle_message(domain_message)
