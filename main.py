@@ -1,16 +1,17 @@
 import discord
-from application.members_service import MembersService, Member, Message
+from application.members_service import MembersService
 
 from just_config.configuration import Configuration
 
 from infrastructure.discord import DiscordEventListener
 
+configuration = Configuration()
+
+members_service = MembersService(configuration['BOT_NAME'])
+
 intents = discord.Intents.default()
 intents.members = True
 
-members_service = MembersService('testclub_bot') # move to configuration
-
 client = DiscordEventListener(members_service, intents)
 
-config = Configuration()
-client.run(config['TOKEN'])
+client.run(configuration['TOKEN'])
