@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "brilliant-forge-317117",
+  "private_key_id": "3502942b56c94737e6c120f8ac40a7e5906cc129",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDJFAjSNDDJyBrD\nNQOuZjHhrDxSawxuKtJnR0BCGf//aSBd7iEA92YrZpRj3eVa1h0LITHfXI/Y5Owt\n8vncSqWhxH7LF8H+7A6Ew1hVTOg79Dhwt9kNWk5LNQ5615y5zpH5NkoDAQMgFJcq\noQdsv6T5RDiHgYAYMw93EGwvPoYLAZ/vWbCsVLuOEqFD3sOWD7vKBQ4STxIl4d/L\nhPyDGauw+0Dm/CDIYDwIWhGNOzWFE0b1tFyGVqS4HmPeSI/uy5/zrcgBk1ANCqAA\nCh9AsVsUPN+iCFX+bU1pSRGS/4E2rUKVRfxHbsZPMjDBVGP3CkGhQgYvOoOz18VN\nyV6FlmvFAgMBAAECggEAAOWWR0jugZMWZ3hIXJ7d3XzoRSsI3A7t1eiv8fuHgRFs\nQ9ViXH/XlIPGT3TqzajQNvLLDaauIsOdBNsLrHHBL/aeS1qYrDUYuK5EXRdunu6i\nawJIggvWkI607CBWqLXlDPoy6OhR8r+UwwU2Pfc6DaPCJ5YqYGR0TudWv2LLtA3b\nE78mhjwvHUdDj3/d89MCo94AXoKMBDvD/eo0NSR2DN1wjvszccmRWKUWDax25BSq\nsCNzNYQMwlZ6kxP4Aut00gHA0ETQ2Y8pvsC37zimW8B5CUC4aY2PYfurWGkBmqxe\nk2Fnpu4Mghi7tbx5y2bnIl9sGfA3lvLVdbKuwF+6sQKBgQDjbY+psgKp/fSHIy4F\nkzYjNd9FCKPpMZe5/81mRyNz8xjjMyBD6zSdVMRbyfjFgzMLCftG5g7cW8vVyczd\nq5Aft8r1SlyPcq08wb8yQH/17ALXE3baKPGQuJhpQwT05ikNMO9sIubxANxiwmZl\n/RAnU9TBu6geE/CPrt20NMNmeQKBgQDiVwZ70ubTacapcVQflZTJ0a5K6Sltz27/\nRvKY0jDnUbrvEbGgRJfXRJdJuP80w0rZCXeeohFqqNXUGGLrjQEMkkOrjC+N6lCv\nP/0Tw7Akm7gSyA9H6+2mJN1i900f6CSG4uj4a+iTwWFygAl3NVv8oj5Yt5s32YLV\nhCvRrYCMrQKBgBIji+DB9NpwCc+5a5NAQYIfatZLsR8JOIu6LjypEdfOnL6KNlmU\nadbeiuazPicqpqiLvEHUWX0TyTcc6D0J0O3mr8ZOjwFV6SE+ZqxwXoRTtYpH4CPY\nPiQHxQgoMz4BGWcW7xGV2wt/wRQTYy1hOKeaVQ66k9cKShZ7oO0dhDQpAoGBAMAV\nXtlC2MXeZMxz8xKC3SyRmDrWuWQJwIdAbK2o4/vL7rro5ze+PqZf/YyBRYQ/oIuk\nbzHfFKzR7/X5ZCnHFnbWwjsZ01m62xJ/WYWmcxv+Uy8NPXqqDJsNehx9B6TmW+ll\nNJVu7ohGey6y3lWeoRw7jHG6EC5Ll68gZheiCRBZAoGATSxSXvov1107BXG55Sun\n4nD6S5n7C66TVmScy9+sXQanWOOwVNdsQBTw3SMyJAyw1Kjt1Sn7Nyosv1VPOIOw\n58ISTAl44lHw2sI4vCbMI6Hu4lmeSyG7bMld4AbWmiLmCX6fDA9rTLFKY7dkl1vc\nfEBjYmZnaOS5hw0ZTLVIRUo=\n-----END PRIVATE KEY-----\n",
+  "client_email": "app-270@brilliant-forge-317117.iam.gserviceaccount.com",
+  "client_id": "101427269050574977150",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/app-270%40brilliant-forge-317117.iam.gserviceaccount.com"
+}

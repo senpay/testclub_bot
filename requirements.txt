@@ -1,2 +1,5 @@
 discord.py==1.7.3
 just_config==20.3
+
+attrs~=21.4.0
+google~=3.0.0
