@@ -55,9 +55,10 @@ class DiscordMessageSender:
 
 class DiscordEventListener(discord.Client):
 
-    def __init__(self, message_sender: DiscordMessageSender, intents: discord.Intents):
+    def __init__(self, message_sender: DiscordMessageSender, intents: discord.Intents, bot_name: str):
         super(DiscordEventListener, self).__init__(intents=intents)
         self.members_service = message_sender
+        self.bot_name = bot_name
 
     async def on_ready(self):
         logger.info('We have logged in as {0.user}'.format(self))

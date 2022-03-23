@@ -24,6 +24,6 @@ intents.members = True
 
 discord_message_sender = DiscordMessageSender(None)
 
-client = DiscordEventListener(discord_message_sender, intents)
+client = DiscordEventListener(discord_message_sender, intents, configuration['BOT_NAME'])
 discord_message_sender.client = client
 client.run(configuration['TOKEN'])
