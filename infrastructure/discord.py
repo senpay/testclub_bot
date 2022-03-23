@@ -68,7 +68,7 @@ class DiscordEventListener(discord.Client):
         self.members_service.handle_member_joined(member)
 
     async def on_member_remove(self, member):
-        self.message_sender.send_to_general(ON_MEMBER_LEFT_MSG.format(member.author.mention))
+        self.message_sender.send_to_general(ON_MEMBER_LEFT_MSG.format(member.mention))
         logger.info(f'{member.name} left our server. Bastard!!1')
 
     async def on_message(self, message):
