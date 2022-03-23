@@ -29,7 +29,7 @@ class DiscordMessageSender:
         self._send_to_channel(channel, message)
 
     def send_to_user(self, member: Member, message: str):
-        self._send_to_user(user, message)
+        self._send_to_user(member, message)
 
     @staticmethod
     def _send_to_channel(channel: discord.TextChannel, message: str):
@@ -39,11 +39,11 @@ class DiscordMessageSender:
         asyncio.create_task(channel.send(message))
 
     @staticmethod
-    def _send_to_user(user: Member, message: str):
-        if not user:
+    def _send_to_user(member: Member, message: str):
+        if not member:
             logger.warning("Can't send anything, wasn't properly set up yet")
             return None
-        asyncio.create_task(user.send(message))
+        asyncio.create_task(member.send(message))
 
     def _get_channel_by_name(self, name: str) -> str:
         if not self.client:
@@ -64,12 +64,11 @@ class DiscordEventListener(discord.Client):
         logger.info('We have logged in as {0.user}'.format(self))
 
     async def on_member_join(self, member):
-        domain_member = Member(member.mention)
         self.message_sender.send_to_user(member, ON_MEMBER_JOINED_MSG.format(member.name))
-        self.members_service.handle_member_joined(domain_member)
+        self.members_service.handle_member_joined(member)
 
     async def on_member_remove(self, member):
-        self.message_sender.send_to_general(ON_MEMBER_LEFT_MSG.format(member.name))
+        self.message_sender.send_to_general(ON_MEMBER_LEFT_MSG.format(member.author.mention))
         logger.info(f'{member.name} left our server. Bastard!!1')
 
     async def on_message(self, message):
