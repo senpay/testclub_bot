@@ -1,6 +1,5 @@
 import discord
 import logging
-from application.members_service import MembersService
 
 from just_config.configuration import Configuration
 
@@ -25,8 +24,6 @@ intents.members = True
 
 discord_message_sender = DiscordMessageSender(None)
 
-members_service = MembersService(configuration['BOT_NAME'], discord_message_sender)
-
-client = DiscordEventListener(members_service, intents)
+client = DiscordEventListener(discord_message_sender, intents)
 discord_message_sender.client = client
 client.run(configuration['TOKEN'])
