@@ -27,6 +27,9 @@ class MessageSender:
     def send_to_channel_name(self, channel_name: str, message: str):
         raise NotImplementedError()
 
+    def send_to_user(self, user_id: Member, message: str):
+        raise NotImplementedError()
+
 
 class MembersService:
 
@@ -44,7 +47,7 @@ class MembersService:
 
     def handle_member_joined(self, member: Member) -> str:
         logger.info(f'{member.name} joined our server. Good!!1')
-        self.message_sender.send_to_general(ON_MEMBER_JOINED_MSG.format(member.name))
+        self.message_sender.send_to_user(member, ON_MEMBER_JOINED_MSG.format(member.name))
 
 
 

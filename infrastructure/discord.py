@@ -28,12 +28,21 @@ class DiscordMessageSender(MessageSender):
         channel = self._get_channel_by_name(channel_name)
         self._send_to_channel(channel, message)
 
+    def send_to_user(self, user: str, message: str):
+        self._send_to_user(user, message)
+
     @staticmethod
     def _send_to_channel(channel: discord.TextChannel, message: str):
         if not channel:
             logger.warning("Can't send anything, wasn't properly set up yet")
             return None
         asyncio.create_task(channel.send(message))
+
+    def _send_to_user(self, user: Member, message: str):
+        if not user:
+            logger.warning("Can't send anything, wasn't properly set up yet")
+            return None
+        asyncio.create_task(self.client.send_message(user, message))
 
     def _get_channel_by_name(self, name: str) -> str:
         if not self.client:
