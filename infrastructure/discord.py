@@ -65,7 +65,7 @@ class DiscordEventListener(discord.Client):
 
     async def on_member_join(self, member):
         self.message_sender.send_to_user(member, ON_MEMBER_JOINED_MSG.format(member.name))
-        self.members_service.handle_member_joined(member)
+        logger.info(f'{member.name} has joined to our server. He/She on the right way!!!')
 
     async def on_member_remove(self, member):
         self.message_sender.send_to_general(ON_MEMBER_LEFT_MSG.format(member.mention))
